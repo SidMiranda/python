@@ -1,0 +1,32 @@
+import platform
+import subprocess
+
+def ping(host):
+    param = '-n' if platform.system().lower() == 'windows' else '-c'
+    command = ['ping', param, '2', host]
+    return subprocess.call(command) == 0
+
+
+alive = ping("192.168.88.150")
+
+print(alive)
+
+'''LINUX
+import os
+host = '192.168.10.65'
+response = os.system('ping -c 1 ', + host)
+
+if response == 0:
+    print(host, 'is up!')
+else:
+    print(host, 'is down')
+    
+# PIP INSTALL PYPING
+import pyping
+r = pyping.ping('google.com')
+if r.ret_code == 0:
+    print("Success")
+else:
+    print("Failed with {}".format(r.ret_code))    
+
+'''
