@@ -1,0 +1,20 @@
+#C:\Program Files (x86)\Comnect\VPN Slim\config\pwd.txt
+#https://portal2.comnect.com.br/
+#homo portal - 192.168.**.108
+#banco de dados comnect_development_new
+
+""" Ler o arquivo pwd.txt e capturar as 2 variaveis user e senha
+    Deve gerar o hash da senha em MD5 para validar no banco de dados, mysql
+    O banco de dados esta no Homo-***** com usuário root e senha T***01 """
+
+import hashlib
+
+pwd = open('C:\\Program Files (x86)\\Comnect\\VPN Slim\\Config\\pwd.txt', 'r')
+
+user = pwd.readline()
+password = pwd.readline()[:-1].encode('utf-8')
+
+print('Usuário:', user)
+print('Senha:', password)
+
+print('Senha Criptografada:', hashlib.md5(password).hexdigest())
