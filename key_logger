@@ -1,0 +1,26 @@
+import keyboard
+from time import sleep
+
+press = []
+keyboard.on_press(lambda K: press.append(K.name))
+sleep(5)
+
+print(press)
+
+#https://www.youtube.com/watch?v=G6bHl8Ert6U
+"""
+teclas_apertadas = []
+teclas_especiais = {'space':'', 'enter':'\n'}
+
+
+def trata_tecla(k):
+    if 'shift' in k.modifiers:
+        teclas_apertadas.pop()
+    tecla = k.nome
+    if len(tecla) > 1:
+        tecla = teclas_especiais.get(tecla, '<<{}>>'.format(tecla))
+    teclas_apertadas.append(tecla)
+    
+    
+keyboard.on_press(trata_tecla)
+"""
