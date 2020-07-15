@@ -1,0 +1,20 @@
+from threading import Thread, Lock, Timer, Event
+from time import sleep
+
+def count():
+    sleep(1)
+    n = input('Digite um numero maior que 5: ')
+    if int(n) > 5:
+        event.set()
+    else:
+        count()
+
+event = Event()
+
+t = Thread(target=count)
+t.start()
+
+
+print('antes')
+event.wait()
+print('depois')
