@@ -1,0 +1,29 @@
+import hashlib
+import time
+
+counter = 1
+
+md5_pass = input("Enter md5 password: ")
+md5_file = input("Enter Wordlist location: ")
+
+try:
+    md5_file = open(md5_file, 'r')
+except:
+    print('\nFile not Found')
+    quit()
+
+for password in md5_file:
+    hash_obj = hashlib.md5(password.strip().encode('utf-8')).hexdigest()
+    start = time.time()
+    print('\nTrying password %d ---> %s ' % (counter, password.strip()))
+    counter += 1
+    end = time.time()
+    t_time = end - start
+
+    if hash_obj == md5_pass:
+        print('\nPassword Found !! Password is : %s ' % password)
+        print('\nTotal running time : ', t_time, 'seconds')
+        time.sleep(10)
+        break
+    else:
+        print('Password not found')
