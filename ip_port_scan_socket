@@ -1,0 +1,25 @@
+# FAZ SCANER DE PORTAS DE UMA REDE
+import socket
+
+# ex: 192.168.0.
+host = 'IP'
+
+port_list = [21, 22, 23, 25, 53, 80, 110, 443, 445, 465, 587, 995,
+             1025, 1433, 1521, 3306, 8291, 8080, 3389, 63389, 32122, 60001]
+ip = 1
+print('Escaneando rede: 192.168.88.0/24...')
+while ip <= 254:
+    for port in port_list:
+        cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        cliente.settimeout(0.1)
+        codigo = cliente.connect_ex((host + str(ip), port))
+        if codigo == 0:
+            arquivo = open('portas.txt', 'r')
+            conteudo = arquivo.readlines()
+            print('*** HOST ' + host + str(ip) + ' - PORTA: ' + str(port) + ' status: ABERTA')
+            conteudo.append('*** HOST ' + host + str(ip) + ' - PORTA: ' + str(port) + ' status: ABERTA\n')
+            arquivo = open('portas.txt', 'w')
+            arquivo.writelines(conteudo)
+            arquivo.close()
+        cliente.close()
+    ip += 1
