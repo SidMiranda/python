@@ -1,0 +1,22 @@
+from threading import Thread
+from time import sleep
+
+def count_t1():
+    t1 = 0
+    while t1 < 10:
+        print(t1)
+        t1 += 1
+    print('tread 1 acabou')
+
+def count_t2():
+    t2 = 0
+    while t2 < 10:
+        print(t2)
+        t2 += 1
+    print('tread 2 acabou')
+
+tr1 = Thread(target=count_t1)
+tr1.start()
+
+tr2 = Thread(target=count_t2)
+tr2.start()
