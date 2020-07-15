@@ -1,0 +1,37 @@
+from socket import *
+import time
+
+meuHost = ''
+
+_count = (10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+
+minhaPorta = 950
+
+objSock = socket(AF_INET, SOCK_STREAM)
+objSock.bind((meuHost, minhaPorta))
+objSock.listen(5)
+
+while True:
+    print('Aguardando Conexão..')
+    
+    conn, addr = objSock.accept()
+    
+    print('ip ' + addr[0] + ' conectado com sucesso..')
+    conn.send(b'\r\n')
+    conn.send(b'\r\n')
+    conn.send(b'           *************************************************************')
+    conn.send(b'\r\n           *                    COMNECT DIAGNOSTIC                     *')
+    conn.send(b'\r\n           *************************************************************')
+    conn.send(b'\r\n           *                 TELNET FECHADO COM SUCESSO                *')
+    conn.send(b'\r\n           *************************************************************')
+    conn.send(b'\r\n')
+    conn.send(b'\r\n                              SEU IPv4 - ' + bytes(addr[0], 'utf-8'))
+    conn.send(b'\r\n')
+    conn.send(b'\r\n           *************************************************************')
+    conn.send(b'\r\n            ')
+    for i in _count:
+        conn.send(b'\r\n           ' + bytes(str(i), 'utf-8'))
+        time.sleep(1)
+        
+    conn.close()
+    pass
