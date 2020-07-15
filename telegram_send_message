@@ -1,0 +1,13 @@
+# ENVIA MENSAGEM PARA O TELEGRAM
+# -*- coding: utf-8 -*-
+import telepot
+
+# codigo api criado no BotFather do Telegram (@botExemplo)
+api = 'XXXXX407:AAHZybZlMVRR_9Q_baaqM4WgvUYYLXXXXX'
+
+bot = telepot.Bot(api)
+
+# Codigo da conversa com o Bot
+msgSid = XXXXXXXX
+
+bot.sendMessage(msgSid, "hello world")
