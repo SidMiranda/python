@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+#from matplotlib import style
+#style.use('ggplot')
+
+X = [5, 5, 5, 5]
+Y = ['Sidney', 'Augusto', 'Miranda']
+
+"""X = range(100)
+Y = [val ** 2 for val in X]
+Z = [val ** 3 for val in X]
+
+plt.plot(X, Y, label='Quadrado')
+plt.plot(Z, label='Cubo')
+plt.plot(60, 60, 'ro', label='ponto')
+
+plt.legend()
+plt.grid(True, lw=1, ls='--')
+plt.title('Grafico de Exemplo')
+plt.xlabel('Valores de X')
+plt.ylabel('Valores de Y')"""
+#plt.bar(Y, X)
+plt.pie(X)
+plt.show()
+
+
+#Live 90 (dunossauro)
