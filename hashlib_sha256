@@ -1,0 +1,23 @@
+import hashlib
+import random
+
+palavra = 'Ola Mundo.'
+
+palavra_criptografada = hashlib.sha256(palavra.encode('utf-8'))
+
+palavra_desciptografada = hashlib.sha256
+
+print(palavra)
+print(palavra_criptografada) # print o objeto
+print(palavra_criptografada.digest()) # printa a criptografia
+
+word = hashlib.sha256()
+word.update(b'Ola, este e um arquivo de texto escrito para')
+word.update(b' mostrar como as funcoes hash funcionam.')
+print(word.digest())
+print(word.digest_size)
+
+print(hashlib.sha256(b'Ola Mundo.').digest())
+
+
+print(hashlib.algorithms_available)
