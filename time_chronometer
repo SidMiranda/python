@@ -1,0 +1,10 @@
+from datetime import datetime
+from time import sleep
+
+start_time = datetime.now()
+
+sleep(5)
+
+time_elapsed = datetime.now() - start_time
+
+print(f'TEMPO DECORRIDO: {time_elapsed}')
