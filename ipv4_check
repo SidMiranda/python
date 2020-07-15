@@ -1,0 +1,20 @@
+import socket
+import datetime as time
+
+ip = socket.gethostbyname(socket.gethostname())
+
+"""Ips internos"""
+#10.0.0.0/8 (do IP 10.0.0.1 até 10.255.255.255)
+#172.16.0.0/12 (do IP 172.16.0.1 até 172.31.255.255)
+#192.168.0.0/16 (do IP 192.168.0.1 até 192.168.255.255)
+
+#169.254.0.1 a 169.254.255.254
+#127.0.0.1
+#0.0.0.0
+
+if ip[:3] == '10.' or ip[:3] == '172' or ip[:3] == '192':
+    print('IP Verificado OK: ', ip)
+elif ip[:3] == '169' or ip[:3] == '127' or ip[:3] == '0.0':
+    print('Configurações de IPv4 Invalidas: ', ip)
+else:
+    print('Não foi possivel verificar o IP Adress!')
