@@ -1,0 +1,20 @@
+from requests import get, post
+
+google = get('https://google.com')
+print(google.status_code)
+print(google.text)
+
+'''
+google.headers
+google.reason
+google.cookies
+google.text
+'''
+
+'''
+google = post('https://google.com')
+google.status_code
+google.reason
+google.encoding
+google.close
+'''
