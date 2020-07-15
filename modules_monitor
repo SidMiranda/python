@@ -1,0 +1,26 @@
+import psutil
+import os
+import subprocess
+from time import sleep
+
+while True:
+    d = psutil.disk_usage('C:')[3]
+    print(d)
+    sleep(1)
+
+#**************************************
+
+path = 'C:/agent2/mcu.exe'
+x = 0
+while x < 10:
+    #os.startfile(path)
+    subprocess.call(path)
+    sleep(3)
+    print(x, 'time')
+    x += 1
+    
+#**************************************
+while True:
+    x = psutil.virtual_memory()[2]
+    print(x)
+    sleep(1)
