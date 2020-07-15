@@ -1,0 +1,13 @@
+from string import ascii_letters
+
+file = open('texto.txt', 'a')
+
+for x in ascii_letters:
+    file.write('\n{}'.format(x))
+
+
+print(open('texto.txt', encoding='windows 1252').read())
+
+#w write
+#r read
+#a append
