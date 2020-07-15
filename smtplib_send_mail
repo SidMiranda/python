@@ -1,0 +1,21 @@
+# utf-8 ? we need unicode
+import smtplib
+from email.mime.text import MIMEText
+
+servidor = 'IPv4'
+porta = "SMTP port"
+username = 'usuario'
+password = 'senha'
+fromA = 'sidney@comnect.com.br'
+toA = 'sidney.miranda2013@gmail.com'
+
+msg = MIMEText('teste Email Comnect')
+msg['subject'] = 'teste Email Comnect'
+msg['from'] = fromA
+msg['to'] = toA
+
+server = smtplib.SMTP(servidor, porta)
+
+server.login(username, password)
+server.sendmail(fromA, toA, msg.as_string())
+server.quit()
