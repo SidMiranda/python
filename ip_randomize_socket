@@ -1,0 +1,25 @@
+# LOCALIZA IP´S RANDOMICOS E TESTA PORTA 80
+
+import random
+from socket import *
+
+serverPort = 80
+
+while True:
+    try:
+        serverIP = str(random.randrange(255)) + '.' + str(random.randrange(255)) + '.' + \
+                   str(random.randrange(255)) + '.' + str(random.randrange(255))
+
+        # Cria um objeto socket do tipo TCP/IP e tenta se conectar ao ip randomizado e porta 80
+        objSock = socket(AF_INET, SOCK_STREAM)
+        print('Tentando se conectar a ' + str(serverIP) + ':' + str(serverPort))
+
+        # Faz a tentativa de conexão por 200 milesegundos
+        objSock.settimeout(0.2)
+
+        # Se a conexão obtiver resposta, printa "Conexão efetuada com sucesso"
+        objSock.connect((serverIP, serverPort))
+        print('Conexão efetuada com sucesso a *******************' + str(serverIP))
+        objSock.close()
+    except:
+        pass
